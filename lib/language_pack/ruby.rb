@@ -85,6 +85,7 @@ class LanguagePack::Ruby < LanguagePack::Base
       new_app?
       Dir.chdir(build_path)
       remove_vendor_bundle
+      install_build_deps
       install_ruby
       install_jvm
       setup_language_pack_environment
@@ -233,6 +234,14 @@ private
         set_env_default "JRUBY_OPTS", default_jruby_opts
         set_env_default "JAVA_TOOL_OPTIONS", default_java_tool_options
       end
+    end
+  end
+
+  # install any libraries needed to build gems
+  def install_build_deps
+    instrument 'ruby.install_build_deps' do
+      run("apt-get update -qq")
+      run("apt-get install -y libmagic-dev")
     end
   end
 
