@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+system("sudo apt-get update -qq")
+system("sudo apt-get install -y libmagic-dev")
+
 # sync output
 $stdout.sync = true
 
