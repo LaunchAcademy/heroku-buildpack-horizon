@@ -240,6 +240,7 @@ private
   # install any libraries needed to build gems
   def install_build_deps
     instrument 'ruby.install_build_deps' do
+      topic("Installing build dependencies.")
       run("apt-get update -qq")
       run("apt-get install -y libmagic-dev")
     end
