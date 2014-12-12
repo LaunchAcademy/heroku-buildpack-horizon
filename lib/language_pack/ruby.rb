@@ -241,8 +241,8 @@ private
   def install_build_deps
     instrument 'ruby.install_build_deps' do
       topic("Installing build dependencies.")
-      run("apt-get update -qq")
-      run("apt-get install -y libmagic-dev")
+      run("sudo apt-get update -qq")
+      run("sudo apt-get install -y libmagic-dev")
     end
   end
 
